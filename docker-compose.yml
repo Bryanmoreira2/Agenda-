@@ -9,22 +9,22 @@ services:
 
   api:
     container_name: api_agenda
-    build: ./api
+    build: ./backend
     restart: always
     ports:
       - "5002:5002"
     depends_on:
       - mongo-agenda
     env_file:
-      - ./api/.env
+      - ./backend/.env
 
   spa:
     container_name: spa_agenda
-    build: ./spa
+    build: ./frontend
     depends_on:
       - api
     env_file:
-      - ./spa/.env
+      - ./frontend/.env
     volumes: 
       - sap-volume:/var/www/html  
 
