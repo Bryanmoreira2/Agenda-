@@ -1,0 +1,45 @@
+services:
+  mongo-agenda:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-agenda-volume:/data/db
+    restart: always
+
+  api:
+    container_name: api_agenda
+    build: ./backend
+    restart: always
+    ports:
+      - "5002:5002"
+    depends_on:
+      - mongo-agenda
+    env_file:
+      - ./backend/.env
+
+  spa:
+    container_name: spa_agenda
+    build: ./frontend
+    depends_on:
+      - api
+    env_file:
+      - ./frontend/.env
+    volumes: 
+      - sap-volume:/var/www/html  
+
+  nginx:
+    container_name: nginx-agenda
+    build: ./nginx
+    volumes: 
+      - sap-volume:/var/www/html  
+    ports:
+      - "80:80"
+    depends_on:
+      - mongo-agenda
+      - api
+      - spa
+
+volumes:
+  mongodb-agenda-volume:
+  sap-volume:

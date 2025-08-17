@@ -1,0 +1,82 @@
+/* Estrutura principal */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  color: #1e1e1e;
+}
+
+/* Botão voltar */
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+/* Formulário */
+.form {
+  width: 100%;;
+  background-color: #f1f3f5;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form h1 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid var(--info);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: white;
+  outline: none;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.timeRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.timeRow label {
+  flex: 1;
+}
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: block;
+}
+

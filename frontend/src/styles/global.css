@@ -1,0 +1,31 @@
+:root{
+    --white:#E5E7EB;
+    --info: #050a24;
+    --info-hover: #00357b;
+    --error: #db3030;
+    --error--hover: #5f0808;
+    --neutral: #575757;
+    --day: #374151;
+    --blue: #008cff;
+    --magenta: #FF00FF;
+    --orange: #FFA500;
+    --green: #28a745;
+    --gray: #cf0202;
+    --teal: #540644
+
+
+
+}
+
+
+*{box-sizing: 0;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family:'Inter'
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+}

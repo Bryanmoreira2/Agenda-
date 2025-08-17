@@ -1,0 +1,138 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  background: var(--info);
+  padding: 25px;
+  gap: 15px;
+}
+  .calendar {
+  height: 100%;
+  overflow-y: auto;
+
+  max-width: 1550px; 
+  width: 100%;
+
+
+  margin-left: auto;
+  margin-right: auto;
+}
+.calendar {
+  color:var(--white);
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+
+.header {
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  color: var(--info);
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+.controls button {
+  margin: 10px;
+  font-size: 35px;
+  font-weight: bold;
+  background-color: transparent
+}
+.controls span{
+  text-transform: capitalize;
+   font-size: 25px;
+    font-weight: bold;
+}
+
+
+.weekdays {
+  height: 60px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-content: center;
+  gap: 5px;
+  background: var(--white);
+  color: var(--info);
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 5px;
+  border-radius: 15px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  overflow: hidden
+}
+
+.weekday {
+  
+  padding: 10px;
+}
+.activeWeekday {
+height: 50px;
+  background-color: var(--info);
+  color:  var(--white);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.grid {
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: #cbd5e1;
+  overflow: hidden;
+  margin-top: 1px;
+}
+
+.day {
+  background: var(--white);
+  color: var(--info);
+  min-height: 100px;
+  padding: 5px;
+  position: relative;
+}
+
+
+.today {
+  background-color: var(--day);
+  color:var(--white);
+  
+}
+
+
+
+.event {
+  font-size: 14px;
+  margin-top: 8px;
+  padding: 5px;
+  border-radius: 5px;
+  color: var(--white)
+}
+
+.magenta {
+  background: var(--magenta);
+}
+
+.orange {
+  background: var(--orange);
+}
+
+.blue {
+  background: var(--blue);
+}
+.green{
+  background: var(--green);
+}
+.gray{
+  background: var(--gray);
+}
+.teal
+{background:var(--teal);
+}
+
+
+
+

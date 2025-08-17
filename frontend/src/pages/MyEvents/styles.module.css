@@ -1,0 +1,185 @@
+/* Container principal */
+.container {
+  padding: 45px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Garante que a lista de eventos e a paginação se espalhem na tela */
+}
+
+/* Cabeçalho */
+.header {
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  color: var(--info);
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+/* Lista de eventos */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+  flex-grow: 1; /* Faz a lista de eventos ocupar o espaço restante */
+}
+
+/* Cartão de evento */
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 10px 0;
+  color: white;
+  border-radius: 8px;
+  transition: background-color 0.3s ease; /* Efeito de transição ao mudar a cor */
+}
+.card p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+.div{
+  width: 250px;
+}
+.btn{
+  display: flex;
+  justify-content: flex-end;
+  width: 120px;
+}
+.btn span{
+font-size: 13px;
+}
+/* Botão de categoria */
+.category {
+  font-weight: 500;
+  color: var(--info);
+  border-radius: 50px;
+  background-color: #DBEAFE;
+  border: none;
+  padding: 8px;
+}
+
+
+
+/* Paginação */
+.pagination {
+  position: relative;
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  font-size: 16px;
+   color: var(--white);
+  font-weight: 300;
+  background-color: transparent;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: transparent;
+  cursor: not-allowed;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.596);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: var(--info);
+  color: var(--white);
+  padding: 25px;
+  border-radius: 15px;
+  width: 400px;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color:var(--white);
+  font-size: 20px;
+}
+.closeBtn:hover{
+  color: var(--error--hover);
+  
+}
+
+
+h2 {
+  font-size:25px;
+  margin-bottom: 10px;
+}
+
+.detailsText {
+  font-size: 15px;
+  color: var(--neutral)
+}
+
+p {
+  margin: 10px 0;
+}
+
+strong {
+  color: var(--white);
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.editBtn,
+.cancelBtn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+
+}
+
+.editBtn {
+  background-color: var(--green);
+  color: white;
+  
+}
+
+.cancelBtn {
+  background-color: #f44336;
+  color: white;
+
+}
+
+.editBtn:hover,
+.cancelBtn:hover {
+  opacity: 0.8;
+}
+

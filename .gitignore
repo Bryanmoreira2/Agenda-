@@ -1,0 +1,13 @@
+
+
+# Ignorar diretórios de compilação e dependências
+dist/
+build/
+
+# Ignorar arquivos do sistema operacional (ex: macOS, Windows)
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de configuração de IDE (ex: VSCode, IntelliJ)
+.vscode/
+.idea/
