@@ -7,8 +7,8 @@ services:
       - mongodb-agenda-volume:/data/db
     restart: always
 
-  api:
-    container_name: api_agenda
+  back-end:
+    container_name: back_agenda
     build: ./backend
     restart: always
     ports:
@@ -18,11 +18,11 @@ services:
     env_file:
       - ./backend/.env
 
-  spa:
-    container_name: spa_agenda
+  front-end:
+    container_name: front_agenda
     build: ./frontend
     depends_on:
-      - api
+      - back-end
     env_file:
       - ./frontend/.env
     volumes: 
@@ -37,8 +37,8 @@ services:
       - "80:80"
     depends_on:
       - mongo-agenda
-      - api
-      - spa
+      - back-end
+      - front-end
 
 volumes:
   mongodb-agenda-volume:
