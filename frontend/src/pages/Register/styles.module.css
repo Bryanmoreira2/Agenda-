@@ -1,6 +1,8 @@
+
 *, *::before, *::after {
   box-sizing: border-box; 
 }
+
 
 .loginContainer {
   position: relative;
@@ -8,12 +10,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #050a24;
-    overflow: hidden;
+  background: #050a24
 }
 
 .loginForm {
-  position: relative;
+   position: relative;
   background-color: #fff;
   padding: 40px;
   border-radius: 8px;
@@ -50,10 +51,7 @@
   border: 1px solid #ddd;
   margin-top: 5px;
 }
-
-.input:focus {
-  border: 2px solid #001a43;
-}
+.input:focus {border: 2px solid #001a43;}
 
 .passwordContainer {
   position: relative;
@@ -66,19 +64,11 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  color: #666;
-  transition: color 0.3s ease;
 }
-
-.showPassword:hover {
-  color: #001a43;
-}
-
 .loginButton {
   width: 100%;
   padding: 14px;
-  background-color: #001a43;
+  background-color: #004327;
   color: white;
   font-size: 16px;
   border: none;
@@ -86,67 +76,13 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .loginButton:hover {
   background-color: #0a3c64;
 }
-
 .errorMessage {
-  color: red;
-  margin-top: 10px;
-  font-size: 14px;
-  text-align: center;
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
 }
 
-/* Novas classes adicionadas */
-.successMessage {
-  color: #28a745;
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 15px;
-  font-size: 14px;
-  text-align: center;
-}
-
-.loginLinks {
-  margin-top: 25px;
-}
-
-.registerLink {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.registerLink p {
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  color: #555;
-}
-
-.forgotPasswordLink {
-  text-align: center;
-}
-
-.linkButton {
-  background: none;
-  border: none;
-  color: #001a43;
-  text-decoration: underline;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.linkButton:hover {
-  color: #0a3c64;
-  text-decoration: none;
-}
-
-.linkButton:focus {
-  outline: 2px solid #001a43;
-  outline-offset: 2px;
-  border-radius: 2px;
-}

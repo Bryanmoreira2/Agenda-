@@ -6,6 +6,7 @@ import { LeanderHome } from '../pages/LeaderHome';
 import { Login } from '../pages/Login/Login';
 import { Myevents } from '../pages/MyEvents';
 import { Events } from '../pages/NewAgenda/NewAgenda';
+import { Register } from '../pages/Register/Register';
 import { PrivateRoute } from './private-route';
 
 export const router = createBrowserRouter([
@@ -33,5 +34,9 @@ export const router = createBrowserRouter([
     {
         path: '/login',
         element: <Login />,
+    },
+    {
+        path: '/register',
+        element: <Register />,
     },
 ]);

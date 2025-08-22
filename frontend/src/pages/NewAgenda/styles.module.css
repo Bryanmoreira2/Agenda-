@@ -5,6 +5,7 @@
   flex-direction: column;
   padding: 2rem 3rem;
   color: #1e1e1e;
+  z-index: 1;
 }
 
 /* Botão voltar */

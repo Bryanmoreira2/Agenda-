@@ -5,7 +5,8 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Garante que a lista de eventos e a paginação se espalhem na tela */
+  justify-content: space-between; 
+  z-index: 1;
 }
 
 /* Cabeçalho */

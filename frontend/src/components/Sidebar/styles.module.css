@@ -2,12 +2,14 @@
 .sidebar {
   height: 100vh;
   background-color: var(--white);
+  margin-bottom: 20px;
   color: #001a43;
   padding: 20px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 1;
 }
 
 .logo {

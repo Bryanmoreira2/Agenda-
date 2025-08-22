@@ -16,6 +16,8 @@
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
     "dotenv": "^17.2.0",
+    "gsap": "^3.13.0",
+    "ogl": "^1.0.11",
     "phosphor-icons": "^1.4.2",
     "react": "^19.1.0",
     "react-big-calendar": "^1.19.4",

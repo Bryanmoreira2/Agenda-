@@ -12,6 +12,20 @@ export type UserData = {
     token: string;
 };
 
+// Tipo para os dados de registro
+export type RegisterData = {
+    name: string;
+    email: string;
+    password: string;
+};
+
+// Tipo para resposta de registro
+export type RegisterResponse = {
+    success: boolean;
+    message: string;
+    user?: Omit<UserData, 'password'>;
+};
+
 type UserContextProps = {
     userData: UserData | null;
     getUserInfo: (
@@ -19,14 +33,15 @@ type UserContextProps = {
         email: string,
         password: string,
     ) => Promise<UserData>;
+    registerUser: (registerData: RegisterData) => Promise<RegisterResponse>;
     logout: () => void;
 };
 
 type UserProviderProps = {
     children: ReactNode;
 };
-const STORAGE_KEY = import.meta.env.VITE_LOCALSTORAGE_KEY;
 
+const STORAGE_KEY = import.meta.env.VITE_LOCALSTORAGE_KEY;
 export const USER_STORAGE_KEY = `${STORAGE_KEY}:user`;
 
 const UserContext = createContext<UserContextProps | undefined>(undefined);
@@ -58,13 +73,48 @@ export function UserProvider({ children }: UserProviderProps) {
         return safeData as UserData;
     }
 
+    async function registerUser(
+        registerData: RegisterData,
+    ): Promise<RegisterResponse> {
+        try {
+            const { data } = await api.post('/user', registerData);
+
+            return {
+                success: true,
+                message: 'Conta criada com sucesso!',
+                user: data,
+            };
+        } catch (error: any) {
+            // Tratamento de erros específicos do backend
+            if (error.response?.data?.message) {
+                return {
+                    success: false,
+                    message: error.response.data.message,
+                };
+            }
+
+            // Tratamento de erros de rede ou outros
+            return {
+                success: false,
+                message: 'Erro ao criar conta. Tente novamente.',
+            };
+        }
+    }
+
     function logout() {
         localStorage.removeItem(USER_STORAGE_KEY);
-        setUserData(null); // Melhor usar null em vez de {} as UserData
+        setUserData(null);
     }
 
     return (
-        <UserContext.Provider value={{ userData, getUserInfo, logout }}>
+        <UserContext.Provider
+            value={{
+                userData,
+                getUserInfo,
+                registerUser,
+                logout,
+            }}
+        >
             {children}
         </UserContext.Provider>
     );
