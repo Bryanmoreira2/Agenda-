@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 
-import { Aurora } from '../Aurora-bg/Aurora';
 import styles from './styles.module.css';
 
 type AppContainerProps = {

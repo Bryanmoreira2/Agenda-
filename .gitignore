@@ -1,5 +1,6 @@
+backend/node_modules
 
-
+frontend/node_modules
 # Ignorar diretórios de compilação e dependências
 dist/
 build/
