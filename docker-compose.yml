@@ -9,7 +9,7 @@ services:
     command: mongod --bind_ip_all 
 
   api:
-    container_name: api_agenda[]
+    container_name: api_agenda
     build: ./backend
     restart: always
     ports:
