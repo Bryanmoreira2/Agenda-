@@ -92,10 +92,12 @@ export function Edite() {
 
     return (
         <main className={styles.main}>
-            <button onClick={handleNavigate} className={styles.backButton}>
-                <ArrowLeftIcon size={25} weight="bold" />
-                Voltar
-            </button>
+            <div className={styles.blacks}>
+                <button onClick={handleNavigate} className={styles.backButton}>
+                    <ArrowLeftIcon size={25} weight="bold" />
+                    Voltar
+                </button>
+            </div>
 
             <form onSubmit={handleSubmit} className={styles.form}>
                 <h1>Editar Evento</h1>

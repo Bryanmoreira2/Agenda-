@@ -1,83 +1,203 @@
-/* Estrutura principal */
 .main {
-  flex: 1;
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   padding: 2rem 3rem;
   color: #1e1e1e;
   z-index: 1;
+=======
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+>>>>>>> 8c853e2 (Resp)
 }
 
-/* Botão voltar */
 .backButton {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 0.4rem;
   background: none;
   border: none;
-  color: var(--white);
   font-size: 1rem;
-  margin-bottom: 2rem;
+  color: var(--white);
   cursor: pointer;
-  align-self: flex-start;
+  margin-bottom: 2rem;
+  transition: 0.2s ease-in-out;
 }
 
-/* Formulário */
+.backButton:hover {
+  color: var(--info)
+}
+
 .form {
-  width: 100%;;
-  background-color: #f1f3f5;
+  background: white;
+  width: 100%;
+  max-width: 600px;
   padding: 2rem;
   border-radius: 12px;
-  max-width: 600px;
-  margin: 0 auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .form h1 {
-  font-size: 25px;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
   text-align: center;
+  color: #333;
 }
 
-.form label {
+label {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.2rem;
+  gap: 0.5rem;
   font-weight: 500;
-  font-size: 0.95rem;
+  color: #444;
 }
 
-.form input,
-.form select,
-.form textarea {
-  margin-top: 0.5rem;
-  padding: 0.75rem;
-  border: 1px solid var(--info);
+input,
+select,
+textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 0.95rem;
-  background-color: white;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--info);
   outline: none;
 }
 
-.form textarea {
+textarea {
   resize: vertical;
   min-height: 100px;
 }
 
-.timeRow {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.timeRow label {
-  flex: 1;
-}
 .error {
-  color: red;
-  font-size: 0.85rem;
-  margin-top: 4px;
-  display: block;
+  color: #d93025;
+  font-size: 0.9rem;
+  margin-top: -0.2rem;
 }
 
+.submitButton {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+.blacks{
+    align-content: center;
+    padding-left: 50px; 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+/* ---------- RESPONSIVIDADE ---------- */
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+  .main {
+    padding: 1.5rem;
+  }
+
+  .form {
+    padding: 1.5rem;
+    max-width: 500px;
+  }
+
+  .form h1 {
+    font-size: 1.6rem;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 0.95rem;
+  }
+
+  .submitButton {
+    font-size: 0.95rem;
+  }
+}
+
+/* Smartphones (até 768px) */
+@media (max-width: 768px) {
+  .main {
+    
+    padding: 20px;
+  }
+
+  .form {
+    width: 100%;
+    padding: 1rem;
+    box-shadow: none;
+    border-radius: 8px;
+  }
+
+  .form h1 {
+    font-size: 1.4rem;
+  }
+
+  .backButton {
+    font-size: 0.9rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .submitButton {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+  .form {
+    padding: 0.8rem;
+  }
+
+  .form h1 {
+    font-size: 1.2rem;
+  }
+
+  .backButton {
+    font-size: 0.8rem;
+    gap: 5px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .submitButton {
+    font-size: 0.85rem;
+  }
+}

@@ -1,30 +1,31 @@
 .container {
   width: 100%;
+<<<<<<< HEAD
   height: 100vh;
   gap: 15px;
   z-index: 1
   ;
+=======
+  min-height: 100vh;
+  background: var(--info);
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+>>>>>>> 8c853e2 (Resp)
 }
-  .calendar {
-  height: 100%;
-  overflow-y: auto;
 
-  max-width: 1550px; 
-  width: 100%;
-
-
-  margin-left: auto;
-  margin-right: auto;
-}
 .calendar {
-  color:var(--white);
+  width: 100%;
+  max-width: 1550px;
+  color: var(--white);
   padding: 1rem;
   border-radius: 10px;
   font-family: sans-serif;
 }
 
+/* ======= HEADER ======= */
 .header {
-  height: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,107 +33,206 @@
   color: var(--info);
   border-radius: 15px;
   padding: 1rem;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.header h2 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.header p {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .controls button {
-  margin: 10px;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
-  background-color: transparent
+  background: transparent;
+  color: var(--info);
+  border: none;
+  cursor: pointer;
 }
-.controls span{
+
+.controls span {
   text-transform: capitalize;
-   font-size: 25px;
-    font-weight: bold;
+  font-size: 22px;
+  font-weight: bold;
 }
 
-
+/* ======= DIAS DA SEMANA ======= */
 .weekdays {
-  height: 60px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  align-content: center;
   gap: 5px;
   background: var(--white);
   color: var(--info);
   text-align: center;
   font-weight: bold;
-  font-size: 24px;
-  padding: 5px;
+  font-size: 20px;
+  padding: 8px;
   border-radius: 15px;
-  margin-top: 15px;
-  margin-bottom: 25px;
-  overflow: hidden
+  margin: 20px 0;
 }
 
 .weekday {
-  
-  padding: 10px;
-}
-.activeWeekday {
-height: 50px;
-  background-color: var(--info);
-  color:  var(--white);
-  border-radius: 10px;
   padding: 10px;
 }
 
+.activeWeekday {
+  background-color: var(--info);
+  color: var(--white);
+  border-radius: 10px;
+}
+
+/* ======= GRID PRINCIPAL ======= */
 .grid {
-  border-radius: 15px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 1px;
   background: #cbd5e1;
+  border-radius: 15px;
   overflow: hidden;
-  margin-top: 1px;
 }
 
 .day {
   background: var(--white);
   color: var(--info);
-  min-height: 100px;
-  padding: 5px;
+  min-height: 120px;
+  padding: 6px;
   position: relative;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
 }
 
+.dayNumber {
+  font-size: 16px;
+  font-weight: bold;
+}
 
 .today {
   background-color: var(--day);
-  color:var(--white);
-  
+  color: var(--white);
 }
-
-
 
 .event {
-  font-size: 14px;
-  margin-top: 8px;
-  padding: 5px;
+  font-size: 13px;
+  margin-top: 6px;
+  padding: 4px;
   border-radius: 5px;
-  color: var(--white)
+  color: var(--white);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.magenta {
-  background: var(--magenta);
+/* CORES DE EVENTOS */
+.magenta { background: var(--magenta); }
+.orange { background: var(--orange); }
+.blue { background: var(--blue); }
+.green { background: var(--green); }
+.gray { background: var(--gray); }
+.teal { background: var(--teal); }
+
+/* ======= TABLET ======= */
+@media (max-width: 1024px) and (min-width: 601px) {
+  .container {
+    padding: 0px;
+  }
+  .header {
+    height: 165px;
+    gap: 10px;
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+  .calendar{
+    padding: 10px;
+  }
+
+  .controls span {
+    font-size: 18px;
+  }
+
+  .weekdays {
+    font-size: 18px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .day {
+    min-height: 100px;
+  }
 }
 
-.orange {
-  background: var(--orange);
-}
+/* ======= CELULAR ======= */
+@media (max-width: 600px) {
+  .container {
+    padding: 0px;
+  }
 
-.blue {
-  background: var(--blue);
-}
-.green{
-  background: var(--green);
-}
-.gray{
-  background: var(--gray);
-}
-.teal
-{background:var(--teal);
-}
+  .calendar {
+    padding: 0.5rem;
+  }
 
+  .header {
+     flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+  }
 
+  .header h2 {
+    font-size: 18px;
+  }
+
+  .header p {
+    font-size: 13px;
+  }
+
+  .controls span {
+    font-size: 16px;
+  }
+
+  .controls button {
+    font-size: 24px;
+  }
+
+  .weekdays {
+    font-size: 15px;
+    gap: 3px;
+    padding: 6px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+  }
+
+  .day {
+    min-height: 80px;
+    padding: 4px;
+  }
+
+  .dayNumber {
+    font-size: 13px;
+  }
+
+  .event {
+    font-size: 10px;
+    padding: 2px;
+  }
+}
 
 

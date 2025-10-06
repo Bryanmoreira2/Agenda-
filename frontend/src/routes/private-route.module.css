@@ -1,0 +1,19 @@
+.contentArea {
+  flex: 1;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+/* ======= DESKTOP ======= */
+@media (min-width: 901px) {
+  .contentArea {
+    margin-left: 260px; /* mesma largura da sidebar */
+  }
+}
+
+/* ======= MOBILE / TABLET ======= */
+@media (max-width: 900px) {
+  .contentArea {
+    margin-left: 0;
+  }
+}

@@ -4,6 +4,7 @@ import { Navigate } from 'react-router';
 import { AppContainer } from '../components/app-container';
 import { Sidebar } from '../components/Sidebar';
 import { USER_STORAGE_KEY } from '../hook/use-user';
+import styles from './private-route.module.css';
 
 type PrivateRouteProps = {
     component: ReactNode;
@@ -15,10 +16,11 @@ export function PrivateRoute({ component }: PrivateRouteProps) {
     if (!userData) {
         return <Navigate to="/login" />;
     }
+
     return (
         <AppContainer>
             <Sidebar />
-            {component}
+            <div className={styles.contentArea}>{component}</div>
         </AppContainer>
     );
 }

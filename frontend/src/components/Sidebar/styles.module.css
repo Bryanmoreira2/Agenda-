@@ -1,6 +1,6 @@
-
 .sidebar {
   height: 100vh;
+  width: 260px;
   background-color: var(--white);
   margin-bottom: 20px;
   color: #001a43;
@@ -9,9 +9,106 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+<<<<<<< HEAD
   z-index: 1;
+=======
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease, width 0.3s ease;
+  z-index: 100;
+>>>>>>> 8c853e2 (Resp)
 }
 
+/* =========  MENU TOGGLE PADRÃO  ========= */
+.menuToggle {
+  display: none; /* escondido no desktop */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: var(--white);
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
+  z-index: 300; /* alto o suficiente para ficar sobre tudo */
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========  TABLET  ========= */
+@media (max-width: 900px) and (min-width: 601px) {
+  .sidebar {
+    width: 220px;
+    padding: 15px;
+    border-radius: 0 15px 15px 0;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+
+  .menu {
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 20px;
+    margin-top: 40px;
+  }
+}
+
+/* =========  CELULAR  ========= */
+@media (max-width: 600px) {
+  .sidebar {
+    width: 230px;
+    padding: 12px;
+    border-radius: 0 12px 12px 0;
+    transform: translateX(-100%);
+    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .logo {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+}
+
+/* =========  DESKTOP  ========= */
+@media (min-width: 901px) {
+  .sidebar {
+    transform: none;
+  }
+
+  .menuToggle {
+    display: none;
+  }
+}
+
+/* =========  ELEMENTOS GERAIS  ========= */
 .logo {
   display: flex;
   justify-content: center;
