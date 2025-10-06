@@ -1,109 +1,137 @@
-/* Container principal */
+/* ======== CONTAINER PRINCIPAL ======== */
 .container {
   padding: 45px;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Garante que a lista de eventos e a paginação se espalhem na tela */
+  justify-content: flex-start;
+  background: var(--info);
 }
 
-/* Cabeçalho */
+/* ======== CABEÇALHO ======== */
 .header {
-  height: 150px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background: var(--white);
   color: var(--info);
   border-radius: 15px;
-  padding: 1rem;
-}
-
-/* Lista de eventos */
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 20px;
-  flex-grow: 1; /* Faz a lista de eventos ocupar o espaço restante */
-}
-
-/* Cartão de evento */
-.card {
+  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  margin: 10px 0;
-  color: white;
-  border-radius: 8px;
-  transition: background-color 0.3s ease; /* Efeito de transição ao mudar a cor */
+  flex-wrap: wrap;
+  gap: 10px;
 }
+
+.header h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+/* ======== LISTA DE EVENTOS ======== */
+.list { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px; margin-top: 20px; 
+  flex-grow: 1;  }
+
+/* ======== CARTÃO DE EVENTO ======== */
+
+ .card { 
+  display: flex; 
+  justify-content: space-between;
+   align-items: center; 
+   padding: 20px;
+    margin: 10px 0;
+    color: white; 
+    border-radius: 8px;
+     transition: background-color 0.3s ease;}
+
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
 .card p {
+  width: 100%;
   margin: 5px 0;
-  font-size: 1rem;
+  font-size: 15px;
 }
-.div{
-  width: 250px;
+
+.div {
+  width: 100%;
 }
-.btn{
+
+.btn {
   display: flex;
   justify-content: flex-end;
-  width: 120px;
+  width: 100%;
+  margin-top: 10px;
 }
-.btn span{
-font-size: 13px;
-}
-/* Botão de categoria */
+
 .category {
-  font-weight: 500;
+  font-size: 13px;
   color: var(--info);
   border-radius: 50px;
   background-color: #DBEAFE;
   border: none;
-  padding: 8px;
+  padding: 6px 10px;
+  font-weight: 600;
 }
 
-
-
-/* Paginação */
+/* ======== PAGINAÇÃO ======== */
 .pagination {
-  position: relative;
   color: var(--white);
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  gap: 15px;
+  margin: 25px auto;
 }
 
 .pagination button {
-  font-size: 16px;
-   color: var(--white);
-  font-weight: 300;
-  background-color: transparent;
-  padding: 5px 10px;
-  margin: 0 5px;
-  border: none;
+  font-size: 15px;
+  color: var(--white);
+  background: transparent;
+  border: 1px solid var(--white);
+  border-radius: 25px;
+  padding: 6px 14px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--white);
+  color: var(--info);
 }
 
 .pagination button:disabled {
-  background-color: transparent;
+  opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* ======== MODAL GERAL ======== */
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.596);
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 10px;
 }
 
 .modalContent {
@@ -111,7 +139,8 @@ font-size: 13px;
   color: var(--white);
   padding: 25px;
   border-radius: 15px;
-  width: 400px;
+  width: 420px;
+  max-width: 95%;
   position: relative;
 }
 
@@ -121,36 +150,31 @@ font-size: 13px;
   right: 15px;
   background: none;
   border: none;
-  color:var(--white);
-  font-size: 20px;
-}
-.closeBtn:hover{
-  color: var(--error--hover);
-  
+  color: var(--white);
+  font-size: 22px;
+  cursor: pointer;
 }
 
+.closeBtn:hover {
+  color: var(--error--hover);
+}
 
 h2 {
-  font-size:25px;
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
 .detailsText {
   font-size: 15px;
-  color: var(--neutral)
-}
-
-p {
-  margin: 10px 0;
-}
-
-strong {
-  color: var(--white);
+  color: var(--neutral);
+  margin-bottom: 10px;
 }
 
 .modalActions {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 20px;
 }
 
@@ -158,24 +182,23 @@ strong {
 .cancelBtn {
   display: flex;
   align-items: center;
-  gap: 3px;
-  padding: 10px 15px;
-  font-size: 1rem;
+  gap: 5px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
   border: none;
   border-radius: 50px;
-
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .editBtn {
   background-color: var(--green);
   color: white;
-  
 }
 
 .cancelBtn {
   background-color: #f44336;
   color: white;
-
 }
 
 .editBtn:hover,
@@ -183,3 +206,94 @@ strong {
   opacity: 0.8;
 }
 
+/* ======== TABLET ======== */
+@media (max-width: 1024px) {
+  .container {
+    padding: 20px;
+  }
+
+  .header {
+    height: 160px;
+    padding: 30px
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
+
+/* ======== CELULAR ======== */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .header h2 {
+    font-size: 18px;
+  }
+
+  .header p {
+    font-size: 13px;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+
+  .category {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .pagination {
+    font-size: 15px;
+    gap: 10px;
+  }
+
+  .pagination button {
+    font-size: 13px;
+    padding: 4px 10px;
+  }
+
+  .modalContent {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .modalActions {
+    flex-direction: column;
+  }
+
+  .editBtn,
+  .cancelBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

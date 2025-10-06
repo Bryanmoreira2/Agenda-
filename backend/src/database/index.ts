@@ -20,7 +20,7 @@ export async function setupMongo() {
             serverSelectionTimeoutMS: 3000,
         });
 
-        console.log('✅ Database connection established successfully! ✅');
+        console.log('Database connection established successfully! ');
     } catch (error) {
         console.error('❌ Database not connected:', error.message);
         throw error;

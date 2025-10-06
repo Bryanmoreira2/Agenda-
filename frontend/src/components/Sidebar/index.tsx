@@ -1,83 +1,101 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // <-- Importa o hook
+import { useNavigate } from 'react-router-dom';
 
 import {
     BookmarksSimpleIcon,
     CalendarDotsIcon,
     NotePencilIcon,
     SignOutIcon,
+    ListIcon,
+    XIcon,
 } from '@phosphor-icons/react';
 
-import { useUser } from '../../hook/use-user'; // Importa o hook useUser
-import { Button } from '../Button/index';
+import { useUser } from '../../hook/use-user';
+import { Button } from '../Button';
 import styles from './styles.module.css';
 
 export function Sidebar() {
-    const { logout, userData } = useUser(); // Desestrutura userData e logout do contexto
-    const navigate = useNavigate(); // Inicializa o hook de navegação
+    const { logout, userData } = useUser();
+    const navigate = useNavigate();
 
-    // Recupera o estado ativo do botão do localStorage ou define o padrão como 'agenda'
     const storedActiveButton = localStorage.getItem('activeButton') || 'agenda';
     const [activeButton, setActiveButton] = useState<
         'agenda' | 'eventos' | 'agendamento'
     >(storedActiveButton as 'agenda' | 'eventos' | 'agendamento');
 
+    const [isOpen, setIsOpen] = useState(false);
+
     const handleClick = (route: 'agenda' | 'eventos' | 'agendamento') => {
         setActiveButton(route);
-        localStorage.setItem('activeButton', route); // Armazena o estado do botão no localStorage
+        localStorage.setItem('activeButton', route);
         if (route === 'agenda') navigate('/admin');
         if (route === 'eventos') navigate('/eventos');
         if (route === 'agendamento') navigate('/agendamento');
+        setIsOpen(false); // Fecha menu ao clicar no mobile
     };
 
     const handleLogout = () => {
-        logout(); // Chama o logout do contexto
-        localStorage.removeItem('activeButton'); // Limpa o estado ao fazer logout
-        navigate('/login'); // Redireciona para a página de login
+        logout();
+        localStorage.removeItem('activeButton');
+        navigate('/login');
     };
 
     return (
-        <div className={styles.sidebar}>
-            <div className={styles.menu}>
-                <div className={styles.logo}>Agenda Cristã</div>
-
-                {/* Exibe os botões de "Agenda" e "Meus Eventos" apenas se o usuário for admin */}
-                {userData?.isAdmin && (
-                    <>
-                        <Button
-                            variant="success"
-                            onClick={() => handleClick('agenda')}
-                            active={activeButton === 'agenda'}
-                        >
-                            <CalendarDotsIcon fontSize={20} weight="bold" />{' '}
-                            Agenda
-                        </Button>
-
-                        <Button
-                            variant="success"
-                            onClick={() => handleClick('eventos')}
-                            active={activeButton === 'eventos'}
-                        >
-                            <BookmarksSimpleIcon size={20} weight="bold" />
-                            Meus Eventos
-                        </Button>
-                        <Button
-                            variant="success"
-                            onClick={() => handleClick('agendamento')}
-                            active={activeButton === 'agendamento'}
-                        >
-                            <NotePencilIcon size={20} weight="bold" />
-                            Criar Evento
-                        </Button>
-                    </>
+        <>
+            {/* Botão de menu hambúrguer (aparece no mobile) */}
+            <button
+                className={styles.menuToggle}
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                {isOpen ? (
+                    <XIcon size={28} weight="bold" />
+                ) : (
+                    <ListIcon size={28} weight="bold" />
                 )}
-            </div>
+            </button>
 
-            {/* Botão de Sair */}
-            <Button onClick={handleLogout} variant="error">
-                <SignOutIcon weight="bold" />
-                Sair
-            </Button>
-        </div>
+            {/* Sidebar principal */}
+            <div className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
+                <div className={styles.menu}>
+                    <div className={styles.logo}>Agenda Cristã</div>
+
+                    {userData?.isAdmin && (
+                        <>
+                            <Button
+                                variant="success"
+                                onClick={() => handleClick('agenda')}
+                                active={activeButton === 'agenda'}
+                            >
+                                <CalendarDotsIcon fontSize={20} weight="bold" />{' '}
+                                Agenda
+                            </Button>
+
+                            <Button
+                                variant="success"
+                                onClick={() => handleClick('eventos')}
+                                active={activeButton === 'eventos'}
+                            >
+                                <BookmarksSimpleIcon size={20} weight="bold" />
+                                Meus Eventos
+                            </Button>
+
+                            <Button
+                                variant="success"
+                                onClick={() => handleClick('agendamento')}
+                                active={activeButton === 'agendamento'}
+                            >
+                                <NotePencilIcon size={20} weight="bold" />
+                                Criar Evento
+                            </Button>
+                        </>
+                    )}
+                </div>
+
+                <Button onClick={handleLogout} variant="error">
+                    <SignOutIcon weight="bold" />
+                    Sair
+                </Button>
+            </div>
+        </>
     );
 }
