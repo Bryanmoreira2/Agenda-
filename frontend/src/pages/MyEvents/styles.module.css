@@ -5,13 +5,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  justify-content: space-between; 
-  z-index: 1;
-=======
   justify-content: flex-start;
   background: var(--info);
->>>>>>> 8c853e2 (Resp)
 }
 
 /* ======== CABEÇALHO ======== */
