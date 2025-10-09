@@ -11,7 +11,9 @@ export const authenticate = (
     const authHeader = req.headers.authorization;
 
     if (!authHeader) {
-        return res.status(401).json({ error: 'Token não fornecido.' });
+        return res
+            .status(401)
+            .json({ error: 'Pro favor  fornecido a Token .' });
     }
 
     const token = authHeader.split(' ')[1];
