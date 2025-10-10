@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { AdminHome } from '../pages/AdminHome/AdminHomePage';
+import { Register } from '../pages/Cadastro/Register';
 import { Edite } from '../pages/EditEvent/Edite';
 import { LeanderHome } from '../pages/LeaderHome';
 import { Login } from '../pages/Login/Login';
@@ -33,5 +34,9 @@ export const router = createBrowserRouter([
     {
         path: '/login',
         element: <Login />,
+    },
+    {
+        path: '/register',
+        element: <Register />,
     },
 ]);
